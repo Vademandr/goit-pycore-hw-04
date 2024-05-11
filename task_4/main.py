@@ -1,42 +1,14 @@
+from contact_processing import (add_contact, change_contact, show_phone, show_all)
+
 def parse_input(user_input):
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
     return cmd, *args
 
 
-def add_contact(args, contacts):
-    name, phone = args
-    contacts[name] = phone
-    return "Contact added."
-
-
-def change_contact(contacts,  name, phone):
-    if name in contacts:
-        contacts[name] = phone
-        return "Contact updated."
-    else:
-        return f"Contact {name} isn't found."
-
-
-def show_phone(contacts,  name):
-    if name in contacts:
-        print(f"{name} phone is {contacts[name]}")
-    else:
-        print(f"Contact {name} isn't found.")
-
-
-def show_all(contacts):
-    if contacts:
-        for name, phone in contacts.items():
-            print(f"{name}: {phone}")
-    else:
-        print("No contacts found.")
-
-
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
-    print("Set command (add, hello, change, phone, all, exit):")
     while True:
         user_input = input("Enter a command: ")
         command, *args = parse_input(user_input)
