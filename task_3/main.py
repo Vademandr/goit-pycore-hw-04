@@ -9,7 +9,7 @@ def display_directory_structure(directory_path, indent=0):
     path = Path(directory_path)
 
     if not path.exists() or not path.is_dir():
-        print(Fore.RED + f"Шлях '{directory_path}' не існує або не є директорією.")
+        print(Fore.RED + f"Path '{directory_path}' does not exist or is not a directory.")
         return
 
     print(" " * indent + Fore.BLUE + f"{path.name}/")
@@ -24,7 +24,7 @@ def display_directory_structure(directory_path, indent=0):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print(Fore.RED + "Потрібно вказати шлях до директорії.")
+        print(Fore.RED + "You need to specify the path to the directory.")
         sys.exit(1)
 
     directory_path = sys.argv[1]
